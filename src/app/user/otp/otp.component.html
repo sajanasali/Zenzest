@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Add Bootstrap CSS CDN link -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <div class="container d-flex justify-content-center align-items-center h-100">
+    <div class="position-relative">
+      <form (ngSubmit)="verifyOTP()">
+        <div class="card p-2 text-center">
+          <h6>Please enter the one-time password<br>to verify your account</h6>
+          <div>
+            <span>OTP has been sent to</span>
+            <small>*******@gmail.com</small>
+          </div>
+          <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
+            <input class="m-2 text-center form-control rounded" type="text" id="first" name="otp" maxlength="5" [(ngModel)]="otp" required>
+          </div>
+          
+          <div class="mt-4">
+            <button type="submit" class="btn btn-primary px-4 validate">Validate</button>
+          </div>
+        </div>
+      </form>
+      
+    </div>
+  </div>
+
+  <!-- Add Bootstrap JS CDN link -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

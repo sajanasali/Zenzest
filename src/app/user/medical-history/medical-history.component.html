@@ -1,0 +1,80 @@
+<app-header></app-header>
+<section class="p-6 bg-gray-100 text-gray-900">
+	<form novalidate="" action="" class="container flex flex-col mx-auto space-y-12">
+		<fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-50">
+			<div class="space-y-2 col-span-full lg:col-span-1">
+				<p class="font-medium">Personal Information</p>
+				<p class="text-xs">Please add your health informations here</p>
+			</div>
+			<div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+				<div class="col-span-full sm:col-span-3">
+					<label for="firstname" class="text-sm">First name</label>
+					<input id="firstname" type="text" placeholder="First name" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-300 text-gray-900">
+				</div>
+				<div class="col-span-full sm:col-span-3">
+					<label for="lastname" class="text-sm">Last name</label>
+					<input id="lastname" type="text" placeholder="Last name" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-300 text-gray-900">
+				</div>
+				
+                <div class="col-span-full relative">
+                    <label for="dob" class="text-sm">Date of Birth</label>
+                    <input
+                      id="dob"
+                      type="date"
+                      class="w-full rounded-md focus:ring focus:ring focus:ring border-gray-300 text-gray-900"
+                    />
+                  </div>
+                <div class="col-span-full sm:col-span-1 relative">
+                    <label for="gender" class="text-sm">Gender</label>
+                    <select id="gender" class="w-full rounded-md focus:ring focus:ring focus:ring border-gray-300 text-gray-900">
+                      <option value="" disabled selected>Select gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+				<div class="col-span-full">
+					<label for="address" class="text-sm">Address</label>
+					<input id="address" type="text" placeholder="" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-300 text-gray-900">
+				</div>
+				<div class="col-span-full sm:col-span-2">
+					<label for="city" class="text-sm">City</label>
+					<input id="city" type="text" placeholder="" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-300 text-gray-900">
+				</div>
+				<div class="col-span-full sm:col-span-2">
+					<label for="state" class="text-sm">State / Province</label>
+					<input id="state" type="text" placeholder="" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-300 text-gray-900">
+				</div>
+				<div class="col-span-full sm:col-span-2">
+					<label for="zip" class="text-sm">ZIP / Postal</label>
+					<input id="zip" type="text" placeholder="" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-300 text-gray-900">
+				</div>
+			</div>
+		</fieldset>
+		<fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-50">
+			<div class="space-y-2 col-span-full lg:col-span-1">
+				<p class="font-medium">Medical history</p>
+				<p class="text-xs">Adipisci fuga autem eum!</p>
+			</div>
+			<div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+				<div class="col-span-full sm:col-span-3">
+					<label for="username" class="text-sm">Height(cm)</label>
+					<input id="username" type="text" placeholder="height" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-300 text-gray-900">
+				</div>
+				<div class="col-span-full sm:col-span-3">
+					<label for="website" class="text-sm">Weight(kg)</label>
+					<input id="website" type="text" placeholder="weight" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-300 text-gray-900">
+				</div>
+				<div class="col-span-full">
+					<label for="bio" class="text-sm">Reason for seeing doctor</label>
+					<textarea id="bio" placeholder="reason" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-300 text-gray-900"></textarea>
+				</div>
+				<div class="col-span-full">
+					<label for="bio" class="text-sm">Do yo have any allergies ?If any please list</label>
+					<textarea id="bio" placeholder="reason" class="w-full rounded-md focus:ring focus:ri focus:ri border-gray-300 text-gray-900"></textarea>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</section>
+<app-footer></app-footer>

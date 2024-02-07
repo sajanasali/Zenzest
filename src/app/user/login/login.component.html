@@ -1,0 +1,22 @@
+
+<app-header></app-header>
+<div class="login-page flex flex-col items-center justify-center">
+  
+  <div class="background">
+    <img [src]="imgUrl" alt="Background Image">
+    <div class="form">
+      <h4 class="text-center">Login</h4>
+      <form class="login-form" [formGroup]="loginForm" (submit)="Proceedlogin()">
+        <input type="text" formControlName="email" placeholder="Email"/>
+        <input type="password" formControlName="password" placeholder="Password"/>
+        <button type="submit">Login</button>
+        <div>
+          <p class="flex justify-between mt-5">
+            <a routerLink="/register">Register Now!</a>
+            <a routerLink="/forgotPassword">Forgot Password</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
