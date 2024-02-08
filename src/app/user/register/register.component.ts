@@ -10,6 +10,7 @@ import { showalert } from 'src/store/common/App.action';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { CustomValidationService } from 'src/app/services/customValidationService/custom-validation.service';
 
 
 
@@ -35,7 +36,18 @@ ngOnInit(){
     
 
   } 
-   
+  get name() {
+    return this.registerForm.get('name');
+  }
+  get email(){
+    return this.registerForm.get('email')
+  }
+  get password(){
+    return this.registerForm.get('password')
+  }
+  get cpassword(){
+    return this.registerForm.get('cpassword')
+  }
  
   
     ProceedRegister(){

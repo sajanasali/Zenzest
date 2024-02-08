@@ -1,24 +1,31 @@
-<app-header></app-header>
-
-<div class="login-page">
- 
-  <div class="background">
+<div class="background">
       
-      <img [src]="imgUrl"> 
-       
-  <div class="form">
-    
-    <h4 class="text-center">Sign Up</h4>
-    <form class="login-form" [formGroup]="registerForm" (submit)="ProceedRegister()" >
-      <input type="text" placeholder="name" formControlName="name"/>
-     
-      <input type="text"  formControlName="email"  placeholder="Email"/>
+  <img [src]="imgUrl"> 
+   
+<div class="form">
 
-      <input type="password"   formControlName="password"    placeholder="password"/>
-      <input type="password" formControlName="cpassword"  placeholder="Confirm password"/>
-      <button type="submit">Register</button>
-      <p>Already registered <a href="#"> Login Now!</a></p>
-    </form>
-  </div>
+<h4 class="text-center">Sign Up</h4>
+<form class="login-form" [formGroup]="registerForm" (submit)="ProceedRegister()" >
+  <input type="text" placeholder="name" formControlName="name"/>
+  <div style="color: red;"
+  *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+  class="alert alert-danger"
+>
+<div *ngIf="name?.errors?.['required']">Name is required.</div>
+  <div *ngIf="name?.errors?.['minlength']">
+    Name must be at least 4 characters long.
+  </div></div>
+  <input type="text"  formControlName="email"  placeholder="Email"/>
+  <div style="color: red;"
+  *ngIf="email?.invalid && (email?.dirty || name?.touched)"
+  class="alert alert-danger"
+>
+<div *ngIf="email?.errors?.['required']">Email is required.</div>
+<div *ngIf="email?errors?.['email']">Not a valid Email</div></div>
+  <input type="password"   formControlName="password"    placeholder="password"/>
+  <input type="password" formControlName="cpassword"  placeholder="Confirm password"/>
+  <button type="submit">Register</button>
+  <p>Already registered <a href="#"> Login Now!</a></p>
+</form>
 </div>
 </div>
