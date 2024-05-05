@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { beginOtpSending } from 'src/store/user/User.action';
 import { Router } from '@angular/router';
+import { Subscriber, Subscription } from 'rxjs';
 @Component({
   selector: 'app-otp',
   templateUrl: './otp.component.html',
@@ -16,8 +17,9 @@ export class OtpComponent implements OnInit {
  otpemail:string='';
  otp:string='';
  userData: any = {};
- 
-
+ timer:number=60;
+ setingTimer:any;
+//Udata=Subscription|unknown
 ngOnInit(): void {
     
 // this.email=this.userservide.GetdataFromStorage()
@@ -30,9 +32,19 @@ this.otpemail=params['email']
 });
   
 this.sendOtp()
-
+this.setTimer()
 
 }
+
+setTimer(){
+  this.setingTimer=setInterval(()=>{
+  if(this.timer>0){
+    this.timer--
+  }else{
+    clearInterval(this.timer)
+  }
+  })
+  }
 
 sendOtp() {
 
@@ -69,6 +81,12 @@ verifyOTP(){
   )
 }
 
+
+// ngOnDestroy(){
+//   if(this.Udata){
+//     this.Udata.unsubscribe();
+//   }
+// }
 }
 
 

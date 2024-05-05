@@ -1,0 +1,37 @@
+<div class="flex items-center md:p-16">
+    <form [formGroup]="timeslotForm" (ngSubmit)="onSubmit()" class="w-full">
+        <div class="container w-full h-auto flex  justify-start p-10 flex-col items-center">
+            <div class="slotGrid w-full">
+    
+                
+                 <!-- Conditionally render the buttons only if a date is selected -->
+                 <div *ngIf="timeslotForm.get('date')?.value" class="grid grid-cols-1 md:grid-cols-5 gap-3 mt-2">
+                
+                    <button
+                    *ngFor="let timeSlot of timeSlots; let index = index"
+                    type="button"
+                    [ngClass]="{
+                      'bg-blue-500 text-white': selectedButtonIndices.includes(index),
+                      'bg-green-500 text-white': !selectedButtonIndices.includes(index) && !isSlotBooked[index],
+                      'bg-red-500 text-white': isSlotBooked[index],
+                      'px-4 py-2 rounded-md': true
+                    }"
+                    (click)="handleButton(index,timeSlot)"
+                    [disabled]="isSlotBooked[index]"
+                  >
+                    {{ timeSlot }}
+                  </button>
+                  
+
+
+                    <input type="hidden" formControlName="selectedSlot" />
+                
+                </div>
+                <div class="mt-2">
+                    <button mat-raised-button color="warn" type="submit" [disabled]="timeslotForm.invalid">SUBMIT</button>
+                </div>
+    
+            </div>
+        </div>
+    </form>
+</div>

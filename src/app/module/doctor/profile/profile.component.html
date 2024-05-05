@@ -1,0 +1,79 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile</title>
+    <!-- Include the Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include the Material Icons CDN -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <!-- Doctor Profile Card -->
+        <div class="bg-white rounded-lg shadow-md p-8 flex items-start">
+            <!-- Doctor Profile Picture -->
+            
+            <div class="flex-1">
+                <!-- Doctor Name -->
+               
+                <!-- Doctor Qualifications with Stars -->
+                <div class="mb-4">
+                    <h2 class="text-lg font-semibold text-gray-800 mb-1 flex items-center justify-between">
+                        Qualifications
+                       
+                    </h2>
+                    <p class="text-gray-600">{{data.qualification}}</p>
+                    <div class="flex items-center">
+                        <span class="text-yellow-400 material-icons mr-1">star</span>
+                        <span class="text-yellow-400 material-icons mr-1">star</span>
+                        <span class="text-yellow-400 material-icons mr-1">star</span>
+                        <span class="text-yellow-400 material-icons mr-1">star_border</span>
+                        <span class="text-yellow-400 material-icons mr-1">star_border</span>
+                    </div>
+                </div>
+                <!-- Divider line -->
+                <hr class="mb-4">
+                <!-- Doctor Explanations -->
+                <div>
+                    <h2 class="text-lg font-semibold text-gray-800 mb-2 flex items-center justify-between">
+                        EDUCATION
+                        
+                    </h2>
+                    <p class="text-gray-600">{{data.education}}</p>
+                </div>
+                <!-- Divider line -->
+                <hr class="mb-4">
+                <div>
+                    <h2 class="text-lg font-semibold text-gray-800 mb-2 flex items-center justify-between">
+                        EXPERIENCE
+                      
+                    </h2>
+                    <p class="text-gray-600">{{data.experience}}</p>
+                </div>
+                <!-- Divider line -->
+                <hr class="mb-4">
+                <div>
+                    <h2 class="text-lg font-semibold text-gray-800 mb-2 flex items-center justify-between">
+                        Board certifications
+                       
+                    </h2>
+                    <p class="text-gray-600">{{data.certification}}</p>
+                </div>
+                <div class="flex justify-center mt-4">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"  routerLink="doctor/profileEdit">
+                        Edit Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+</body>
+</html>
+
+

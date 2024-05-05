@@ -1,0 +1,39 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered Page</title>
+  <!-- Add Tailwind CSS CDN link -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+  <div class="min-h-screen flex items-center justify-center">
+    <div class="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
+      <form (ngSubmit)="verifyOTP()">
+        <div class="text-center">
+          <h6 class="mb-4">Please enter the one-time password to verify your account</h6>
+          <div>
+            <span>OTP has been sent to</span>
+            <small class="block">*******@gmail.com</small>
+          </div>
+        </div>
+        <div id="otp" class="mt-6">
+          <input class="w-full px-4 py-2 rounded border border-gray-300 focus:border-blue-500 focus:outline-none" type="text" id="first" name="otp" maxlength="5" [(ngModel)]="otp" required>
+        </div>
+        <div class="mt-6">
+          <button type="submit" class="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none">Validate</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
+
+  <!-- Add Bootstrap JS CDN link -->
+
+
+

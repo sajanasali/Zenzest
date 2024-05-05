@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CustomValidationService } from 'src/app/services/customValidationService/custom-validation.service';
 
-
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +20,7 @@ import { CustomValidationService } from 'src/app/services/customValidationServic
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  imgUrl:string="/assets/doctor.jpg";
+ 
   registerForm:FormGroup=new FormGroup({})
     constructor(private builder:FormBuilder,private store:Store,private userservice:UserService,
       private http:HttpClient,private router:Router){}
@@ -30,7 +30,8 @@ ngOnInit(){
 
          name:this.builder.control('',Validators.compose([Validators.required,Validators.minLength(5)])),
          email:this.builder.control('',Validators.compose([Validators.required,Validators.email])),
-         password:this.builder.control('',Validators.required),
+         password:this.builder.control('',Validators.compose([Validators.required,Validators.minLength(5)
+          ])),
          cpassword:this.builder.control('',Validators.required)
     })
     
@@ -49,6 +50,8 @@ ngOnInit(){
     return this.registerForm.get('cpassword')
   }
  
+
+  
   
     ProceedRegister(){
       console.log("first check")
@@ -67,7 +70,7 @@ ngOnInit(){
          
             
               } else {
-                this.store.dispatch(showalert({ message: 'Password mismatch', resulttype: 'fail' }))
+                Swal.fire('warning',"password mismatch")
               }
 
            }

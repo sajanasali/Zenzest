@@ -1,0 +1,57 @@
+<div class="flex m-20 items-center  flex flex-row gap-4">
+<div class="main w-96">
+    <div class="flex flex-col">
+      <div class="font-bold text-lg"> Prescription</div>
+      <form class="flex flex-col w-full" [formGroup]="prescriptionForm" (ngSubmit)="onSubmit()">
+        <div class="content row flex flex-col">
+  
+          <div class="flex flex-col gap-2">
+            <!-- Appointmnetid -->
+            <div class="w-full">
+              <label for="appId" class="block mb-1">Appointmnet Id</label>
+              <input id="appId" type="text" class="w-full px-3 py-2 border rounded-md" formControlName="appId">
+            </div>
+  
+            <!-- Diagnosis -->
+            <div class="w-full">
+              <label for="diagnosis" class="block mb-1">Diagnosis</label>
+              <input id="diagnosis" type="text" class="w-full px-3 py-2 border rounded-md" placeholder="Enter the diagnosis" formControlName="diagnosis">
+            </div>
+          </div>
+  
+  
+          <div class="flex flex-col gap-2">
+            <!-- Medicines -->
+            <div class="flex flex-col" formArrayName="medicines">
+              <div *ngFor="let medicine of medicines.controls; let i = index" [formGroupName]="i" class="medicine-group">
+                <div class="w-full flex items-center gap-2">
+                  <input type="text" class="w-2/3 px-3 py-2 border rounded-md" placeholder="Enter the findings" formControlName="medicine">
+                  <select class="w-1/3 px-3 py-2 border rounded-md" formControlName="dosage">
+                    <option value="">Select Dosage</option>
+                    <option *ngFor="let val of dosage" [value]="val">{{val}}</option>
+                  </select>
+                  <button type="button" class="w-full px-4 py-2 bg-red-500 text-white rounded-md" (click)="removeMedicine(i)">Remove Medicine</button>
+                </div>
+              </div>
+            </div>
+            <!-- Add Medicine Button -->
+            <button type="button" class="w-full px-4 py-2 bg-blue-500 text-white rounded-md mb-4" (click)="addMedicine()">Add Medicine</button>
+          </div>
+  
+  
+          <!-- Advice -->
+          <div class="w-full m-3">
+            <label for="advice" class="block mb-1">Advice</label>
+            <input id="advice" type="text" class="w-full px-3 py-2 border rounded-md" formControlName="advice">
+          </div>
+        </div>
+  
+        <!-- Submit button -->
+        <div class="flex w-full">
+          <button type="button" class="w-full px-4 py-2 bg-gray-400 text-white rounded-md mr-2" >Cancel</button>
+          <button type="submit" class="w-full px-4 py-2 bg-blue-500 text-white rounded-md">Generate</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

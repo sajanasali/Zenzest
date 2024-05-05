@@ -1,0 +1,68 @@
+
+
+
+<div class="flex flex-col lg:flex-row">
+    <!-- Sidebar -->
+   
+<div class="container p-4 grid grid-rows-auto-1fr-auto">
+    <div class="grid-row-start-2">
+<div class="container pt-4 px-4">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+        <!-- Search and category forms -->
+        <div class="d-flex align-items-center justify-content-between w-100 mb-4">
+            <div class="mt-4 mb-8">
+                <input type="text"  name="search" [(ngModel)]="searchText"
+                       placeholder="Search with user name..." 
+                       class="w-full px-4 py-2 border w-200 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                />
+            </div>
+            <div class="col-lg-6 col-6 text-left" style="align-items: center;">
+                
+            </div>
+            <div class="d-flex justify-content-end">
+                <a class='btn btn-success bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mt-5' href="" type="submit">Create new</a>
+            </div>
+
+        </div>
+        
+        <!-- Product table -->
+        <div class="table-responsive">
+            <h1 class="text-center">Users</h1>
+            <table class="table text-start align-middle table-bordered table-hover mb-0" id="productTable">
+                <thead>
+                    <tr    class="text-dark text-center"  >
+                        <th class="px-4 py-2">Name</th>
+                        
+                        <th class="px-4 py-2">Address</th>
+                        <th class="px-4 py-2">Reason for visit</th>
+                        
+                        <th class="px-4 py-2">Status</th>
+                        <th class="px-4 py-2">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let user of users">
+                    <tr *ngIf="searchText ==='' || user.name.toLowerCase().includes(searchText) " >
+                        <td class="px-4 py-2">{{user.name}}</td>
+                       
+                        <td class="px-4 py-2">{{user.address}}</td>
+                        <td class="px-4 py-2">{{user.reason}}</td>
+                        
+                        <td class="px-4 py-2">{{ user.isBlocked ? 'Blocked' : 'Active' }}</td>
+                        <td class="px-4 py-2">
+                            <input type="hidden" id="" value="">
+                            <input type="hidden" id="id">
+                            
+                            <button class="btn btn-outline-primary btn-sm px-2 py-1 m-1" (click)="toggleBlockStatus(user)">{{ user.isBlocked ? 'Unblock' : 'Block' }}</button>
+                           
+                        </td>
+                    </tr>
+                </ng-container>
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>
+</div></div>
+</div>

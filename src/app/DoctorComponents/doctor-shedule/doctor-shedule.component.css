@@ -1,0 +1,14 @@
+.selected-slot {
+    background-color: #6b7280;
+    color: #ffffff;
+}
+
+.available-slot {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
+
+.booked-slot {
+    background-color: #ef4444;
+    color: #ffffff;
+}

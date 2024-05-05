@@ -4,6 +4,8 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { emailResponse } from '../Model/Usermodel';
+import { Token } from '@angular/compiler';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-forgot-password',
@@ -15,7 +17,7 @@ export class ForgotPasswordComponent implements OnInit {
 constructor(private builder:FormBuilder,private userservice:UserService){}
   FpasswordForm:FormGroup=new FormGroup({})
 
-
+ ;
   ngOnInit(){
     this.FpasswordForm=this.builder.group({
            email:this.builder.control('',Validators.compose([Validators.required,Validators.email]))
@@ -34,20 +36,21 @@ constructor(private builder:FormBuilder,private userservice:UserService){}
       const emailObject = { email: email };
   
       // Send the email object as the body
-      this.userservice.sendEmail(emailObject).subscribe(
+     this.userservice.sendEmail(emailObject).subscribe(
         (response: { [key: string]: any }) => {
           typeof(response)
+        
           console.log('Response:', response['email']);
           console.log('email send successfully');
           localStorage.setItem('email',response['email'])
-          //localStorage.setItem('userEmail', userEmail)
+         
         },
         (error) => {
           console.error('Failed to send OTP:', error);
         }
       );
     }
-
+   
 
    }
 

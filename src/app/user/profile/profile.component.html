@@ -1,0 +1,61 @@
+<!-- profile.component.html -->
+
+
+<div class="flex">
+  <!-- Sidebar -->
+  
+
+  <!-- Main Content -->
+  <div class="flex-1">
+    <div class="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-md">
+      <!-- Profile Image -->
+
+      <!-- Personal Details -->
+      <div class="mt-6">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Personal Details</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <p class="text-sm text-gray-600">Name:</p>
+            <p class="font-medium">{{data.name}}</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600">Address:</p>
+            <p class="font-medium">{{data.address}}</p>
+          </div>
+          <!-- Add more personal details as needed -->
+        </div>
+      </div>
+
+      <!-- Medical Details -->
+      <div class="mt-6">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Medical Details</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <p class="text-sm text-gray-600">Blood Type:</p>
+            <p class="font-medium">{{data.bloodgroup}}</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600">Height(cm):</p>
+            <p class="font-medium">{{data.height}}</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600">Weight(kg)</p>
+            <p class="font-medium">{{data.weight}}</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-600">Allergies:</p>
+            <p class="font-medium">{{data.allergies}}</p>
+          </div>
+          <!-- Add more medical details as needed -->
+        </div>
+        <div class="flex justify-center"> <!-- Center the button -->
+          <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="RedirectToMedhistory()">
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

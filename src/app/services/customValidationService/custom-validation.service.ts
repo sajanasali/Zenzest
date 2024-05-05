@@ -21,7 +21,22 @@ export class CustomValidationService {
     };
   }
    
-
+  emailValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      if (!control.value) {
+        return null; // Return null if control value is empty
+      }
+      
+      // Regular expression for email validation
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  
+      // Test the control value against the email pattern
+      const valid = emailPattern.test(control.value);
+  
+      // Return null if the email is valid, otherwise return a validation error object
+      return valid ? null : { invalidEmail: true };
+    };
+  }
   MatchPassword(password: string, confirmPassword: string) {
     return (formGroup: FormGroup) => {
       const passwordControl = formGroup.controls[password];
@@ -56,7 +71,7 @@ export class CustomValidationService {
     });
   }
   validateUserName(userName: string) {
-    const UserList = ['ankit', 'admin', 'user', 'superuser'];
+    const UserList = [ 'admin', 'user', 'doctor'];
     return (UserList.indexOf(userName) > -1);
   }
 }
