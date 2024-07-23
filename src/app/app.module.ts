@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { SocketIoModule,SocketIoConfig } from 'ngx-socket-io';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -66,8 +67,9 @@ import { PageNotFoundComponent } from './common/page-not-found/page-not-found.co
 import { BlockedPageComponent } from './common/blocked-page/blocked-page.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PresciptionComponent } from './DoctorComponents/presciption/presciption.component';
+import { ReportComponent } from './admin/report/report.component';
 
-
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
   declarations: [
@@ -112,6 +114,7 @@ import { PresciptionComponent } from './DoctorComponents/presciption/presciption
     PageNotFoundComponent,
     BlockedPageComponent,
     PresciptionComponent,
+    ReportComponent,
    
    
   ],
@@ -138,7 +141,7 @@ import { PresciptionComponent } from './DoctorComponents/presciption/presciption
     MatPaginatorModule,
     MatFormFieldModule,
     MatRippleModule,
-   
+    SocketIoModule.forRoot(config)
    
    
   ],

@@ -5,12 +5,14 @@ import { HeadercomComponent } from './headercom/headercom.component';
 import { FootercomComponent } from './footercom/footercom.component';
 import { UserSidebarComponent } from './user-sidebar/user-sidebar.component';
 import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
+import { CouncellorsComponent } from './councellors/councellors.component';
 
 const routes: Routes = [
 {path:'headermod',component:HeadercomComponent},
 {path:'footermod',component:FootercomComponent},
 {path:'usersidebar',component:UserSidebarComponent},
-{path:'adminsidebar',component:AdminSidebarComponent}
+{path:'adminsidebar',component:AdminSidebarComponent},
+
 
 ];
 

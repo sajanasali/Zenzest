@@ -36,10 +36,10 @@
                            
                             <td class="px-6 py-4 whitespace-nowrap"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{data.status}}</span></td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium  ">
-                                <button class="text-red-600 hover:text-red-900 disabled:opacity-50"  (click)="handleButtonClick(data)" [disabled]=" data.status==='Cancelled'">  {{data.status === 'Confirmed'?'Start Call':data.status==='completed'? 'Prescription':'Confirm'}}</button>
+                                <button class="text-red-600 hover:text-red-900 disabled:opacity-50"  (click)="handleButtonClick(data)" [disabled]=" data.status==='Cancelled'||data.status==='Prescribed'">  {{data.status === 'Confirmed'?'Start Call':data.status==='Completed'? 'Prescription':data.status==='Prescribed'?'Finished':'Confirm'}}</button>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium ">
-                                <button  class="text-red-600 hover:text-red-900 disabled:opacity-50"     (click)="cancelAppointment(data._id)"   [disabled]="data.status==='Cancelled' ||data.status==='Completed'" >Cancel</button>
+                                <button  class="text-red-600 hover:text-red-900 disabled:opacity-50"     (click)="cancelAppointment(data._id)"   [disabled]="data.status==='Cancelled' ||data.status==='Completed'||data.status==='Prescribed'" >Cancel</button>
                             </td>
                         </tr>
                         </ng-container>

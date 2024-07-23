@@ -92,9 +92,11 @@ export class AppointmentsComponent implements OnInit {
   }
 
   startVideoCall(app:appointmentDetails){
+    console.log(app._id,"data app")
     this.doctorservice.getAppStatus(app._id).subscribe({
       next:(res)=>{
-        const statusData = ((res as StatusRes).status);
+        console.log(res,"response")
+        const statusData = ((res as StatusRes).data);
         
         if (statusData === 'Cancelled') {
           // If the appointment is cancelled, do not proceed with the video call.
@@ -105,9 +107,10 @@ export class AppointmentsComponent implements OnInit {
           console.log('working here',statusData);
           const room = app._id + app.userId._id;
           const email = app.doctorId.email;
-          console.log(119, room);
+          
+          console.log(room,"doctor room")
           this.socketService.joinRoom({ email, room });
-          console.log(128, room)
+         
           this.router.navigate([`doctor/call/${room}`], { state: { value: 'doctor', appointmentId: app._id } });
       
         }
@@ -115,10 +118,11 @@ export class AppointmentsComponent implements OnInit {
   })
   }
   Prescription(data:appointmentDetails){
-       this.router.navigate(['/prescription'],{
+    console.log(data,"prescription")
+       this.router.navigate(['doctor/dashboard/prescription'],{
         queryParams:{
           id:data._id,
-          userId:data.userId
+          userId:data.userId._id
         }
        }) 
   }

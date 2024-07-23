@@ -3,6 +3,8 @@ import { io, Socket } from 'socket.io-client';
 import { SocketIoConfig } from 'ngx-socket-io';
 import { Observable, fromEvent } from 'rxjs';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,26 +12,45 @@ export class SocketServiceService {
   private socket: Socket;
   private message: string = '';
   constructor() { 
-    const config: SocketIoConfig = { url: 'http://localhost:3000/:', options: {} };
-    this.socket = io(config.url, config.options);
-  }
+    const config: SocketIoConfig = { url: 'http://localhost:3000:', options: {withCredentials: true,transports: ['websocket','polling']} };
+    console.log(11111111111111111)
+  
+   this.socket = io('http://localhost:3000', {
+    transports: ['websocket'],
+    withCredentials: true,
+  });
+debugger;
 
+
+  this.socket.on('connect', () => {
+    console.log('Connected to WebSocket server');
+  });
+  }
+  
   joinRoom(data: { email: string; room: string }) {
     if (this.socket) {
+    
       this.socket.emit('room:join', data);
+      console.log("joinRooommmmmmmm",data)
     }
   }
   //user joining
   userRoomJoin(data: { email: string; room: string }): void {
-    if (this.socket) {
+
+    console.log("user inside the room",data)
+    
       this.socket.emit('user-room:join', data);
-    }
+      console.log("user joinedssss in the rroooooommmmmmm")
+    
   }
 
   //listening to the event from backend on user joining
   onUserJoined(): Observable<any> {
+    console.log("userjoined")
     return new Observable(observer => {
+     
       this.socket.on('user:joined', (data: any) => {
+        console.log(data,"in onuser joined00000000000000000")
         observer.next(data);
 
       });
@@ -39,6 +60,7 @@ export class SocketServiceService {
 
   //call from doctor to user
   emitUserCall(data: { to: string; offer: any }): void {
+    console.log("call from doctorrrrr")
     if (this.socket) {
       this.socket.emit('user:call', data);
 
@@ -46,6 +68,7 @@ export class SocketServiceService {
   }
   //listening to incoming call event
   onIncomingCall(): Observable<any> {
+    console.log("Incoming call")
     return new Observable(observer => {
       this.socket.on('incoming:call', (data: any) => {
         observer.next(data)
@@ -54,6 +77,7 @@ export class SocketServiceService {
   }
   //emitting that call accepted
   emitCallAccepted(data: { to: string, ans: any }) :void{
+    console.log("emitcallAcceptinggggggggg1")
     if (this.socket) {
       console.log("inside oncall accepted data sending:to:",data);
       
@@ -106,6 +130,6 @@ export class SocketServiceService {
       this.socket.emit('disconnect:call', data);
     }
   }
-
   
-}
+  } 
+

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, of } from 'rxjs';
-import { Doctor, profileData } from 'src/app/DoctorComponents/DoctorModel/doctorModel';
+import { Doctor, profileData,Prescription,dashData } from 'src/app/DoctorComponents/DoctorModel/doctorModel';
 import { appointmentDetails } from 'src/app/user/Model/Usermodel';
 import { environment } from 'src/environments/environment.development';
 
@@ -44,10 +44,15 @@ CancelAppointment(id:string){
   endAppointment(id:string){
     return this.http.put(this.APIBaseUrl+`appointment-completed/${id}`,{})
   }
-  getAppStatus(id:string){
-    return this.http.get(this.APIBaseUrl+`getStatus/{id}`)
+  endPrescription(id:string){
+    return this.http.put(this.APIBaseUrl+`prescription-completed/${id}`,{})
   }
-
+  getAppStatus(id:string){
+    return this.http.get(this.APIBaseUrl+`getStatus/${id}`)
+  }
+addPrescription(id:string,data:Prescription){
+  return this.http.put(this.APIBaseUrl+`prescription/${id}`,data)
+}
 
 Imageupload(formData:FormData){
   
@@ -65,6 +70,10 @@ getBookedSlots(date:string){
 addTimeSlots(timeslot:any){
   console.log(timeslot,"in service")
   return this.http.post(this.APIBaseUrl+`addtimeslot`,timeslot)
+}
+
+getDashdata():Observable<dashData[]>{
+  return this.http.get<dashData[]>(this.APIBaseUrl+`getDashdata`)
 }
   //HELPER METHODES
 

@@ -12,6 +12,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared modules/shared/shared.module';
 import { PatientsTodayComponent } from './patients-today/patients-today.component';
+import { ChartreportComponent } from './chartreport/chartreport.component';
+import { MaincomponentComponent } from './maincomponent/maincomponent.component';
 
 
 
@@ -22,6 +24,8 @@ import { PatientsTodayComponent } from './patients-today/patients-today.componen
     DashboardComponent,
     SheduleSlotComponent,
     PatientsTodayComponent,
+    ChartreportComponent,
+    MaincomponentComponent,
    
     
   ],

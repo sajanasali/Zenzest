@@ -77,7 +77,12 @@ export class UserService {
   getAppointment():Observable<appointmentDetails[]>{
       return this.http.get<appointmentDetails[]>(this.APIBaseUrl+'appointmentDetail')
   }
- 
+ getAppStatus(id:string){
+  return this.http.get(this.APIBaseUrl+`getAppstatus/${id}`)
+ }
+ endAppointment(id:string){
+  return this.http.put(this.APIBaseUrl+`appointment-completed/${id}`,{})
+}
 
   GetdataFromStorage(): string {
     let userEmail: string = '';

@@ -50,6 +50,11 @@ export interface appointmentDetails{
     prescription:[]
 
 }
+export interface StatusRes{
+    data:string,
+    message:string,
+    success:boolean
+  }
 
 
 export interface Doctor {

@@ -1,0 +1,36 @@
+<div class="w-full h-full p-5">
+    <div class="flex flex-col items-center gap-20 md:px-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="bg-yellow-300 w-auto p-2">
+                <div class="w-auto p-2 bg-white shadow rounded">
+                    <h2 class="text-lg font-bold">Total Appointments</h2>
+                    <p>{{totalAppointments}}</p>
+                </div>
+            </div>
+            <div class="w-auto p-2">
+                <div class="w-auto p-2 bg-white shadow rounded">
+                    <h2 class="text-lg font-bold">Monthly Revenue</h2>
+                    <p>{{monthlyRev}}</p>
+                </div>
+            </div>
+            <div class="w-auto p-2">
+                <div *ngIf="!isAdmin" class="w-auto p-2 bg-white shadow rounded">
+                    <h2 class="text-lg font-bold">Weekly Revenue</h2>
+                    <p>{{weeklyRev}}</p>
+                </div>
+                <div *ngIf="isAdmin" class="w-auto p-2 bg-white shadow rounded">
+                    <h2 class="text-lg font-bold">My Revenue</h2>
+                    <p>{{totalAdminRevenue}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="w-full h-auto items-center px-2 flex flex-col md:flex-row gap-2">
+            <div class="md:w-1/2 w-11/12 h-auto">
+                <canvas #myChart class="w-full"></canvas>
+            </div>
+            <div class="md:w-1/2 w-11/12 h-auto">
+                <canvas #myChart2 class="w-full"></canvas>
+            </div>
+        </div>
+    </div>
+</div>

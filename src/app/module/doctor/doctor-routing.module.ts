@@ -8,6 +8,8 @@ import { AppointmentsComponent } from 'src/app/DoctorComponents/appointments/app
 import { PatientsTodayComponent } from './patients-today/patients-today.component';
 import { PresciptionComponent } from 'src/app/DoctorComponents/presciption/presciption.component';
 import { VideocallComponent } from 'src/app/shared modules/shared/videocall/videocall.component';
+import { CouncellorsComponent } from 'src/app/shared modules/shared/councellors/councellors.component';
+import { MaincomponentComponent } from './maincomponent/maincomponent.component';
 
 
 const routes: Routes = [
@@ -21,6 +23,8 @@ children:[
   {path:'profile',component:ProfileComponent},
   {path:'patientsToday',component:PatientsTodayComponent},
   {path:'prescription',component:PresciptionComponent},
+  {path:'counsellors',component:CouncellorsComponent},
+  {path:'maincomp',component:MaincomponentComponent}
  
 
   

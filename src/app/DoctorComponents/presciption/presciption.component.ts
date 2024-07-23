@@ -1,26 +1,43 @@
-import { Component } from '@angular/core';
-import { FormBuilder,FormArray,Validators, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder,FormArray,Validators, FormGroup, FormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA,MatDialogRef } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
+import { DoctorService } from 'src/app/services/doctor/doctor.service';
+import Swal from 'sweetalert2';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-presciption',
   templateUrl: './presciption.component.html',
   styleUrls: ['./presciption.component.css']
 })
-export class PresciptionComponent {
+export class PresciptionComponent implements OnInit {
 
   prescriptionForm!:FormGroup;
-  constructor(private fb:FormBuilder,
+  subData:Subscription|undefined
+  ApplId:string='';
+ presdata:boolean=false;
+  ngOnInit(): void {
+    this.router.queryParams.subscribe((params)=>{
+      console.log(params,"paramssssssss")
+      this.ApplId=params['id']
+      this.initializeForm()
+    })
+  }
+  constructor(private fb:FormBuilder,private doctorService:DoctorService,private router:ActivatedRoute,private routers:Router
     
-  ){
-    
-      this.prescriptionForm = fb.group({
-        appId: [],
-        diagnosis:['',Validators.required],
-        medicines: fb.array([]),
-        advice:['',Validators.required],
+  ){}
+ 
+  initializeForm(): void {
+    this.prescriptionForm = this.fb.group({
+       appId: new FormControl(this.ApplId),
+       diagnosis:['',Validators.required],
+       medicines: this.fb.array([]),
+       advice:['',Validators.required],
 
-      });
-    }
+     });
+   }
+
 
     get medicines(){
       return this.prescriptionForm.get('medicines') as FormArray;
@@ -50,6 +67,28 @@ export class PresciptionComponent {
   
 
     onSubmit(){
-      
+      console.log(49,'ok',this.prescriptionForm.value);
+      const prescriptionData = this.prescriptionForm.value;
+     this.subData =  this.doctorService.addPrescription(this.ApplId,prescriptionData).subscribe({
+        next:(res)=>{
+          this.doctorService.endPrescription(this.ApplId).subscribe({
+            next:(res)=>{
+                Swal.fire("Prescription added successfully")
+                this.routers.navigate(['doctor/dashboard/appointment'])
+            }
+          })
+         
+        
+         
+        },
+        error:(err)=>{
+         Swal.fire(err.message)
+
+        }
+      })
     }
 }
+function initializeForm() {
+  throw new Error('Function not implemented.');
+}
+

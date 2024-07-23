@@ -79,7 +79,24 @@ export interface response{
     success:boolean,
     data:[]
 }
+export interface dashData{
+  message:string,
+  success:boolean,
+    data:[]
+}
 export interface StatusRes{
-  status:string
+ data:string
+ message:string
+ success:boolean
 
+}
+export interface Prescription{
+  diagnosis:string;
+  medicines:Medicine;
+  advice:string;
+}
+
+export interface Medicine{
+  medicine:string;
+  dosage:string
 }

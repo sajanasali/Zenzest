@@ -39,6 +39,8 @@ import { PageNotFoundComponent } from './common/page-not-found/page-not-found.co
 import { BlockedPageComponent } from './common/blocked-page/blocked-page.component';
 import { PresciptionComponent } from './DoctorComponents/presciption/presciption.component';
 import { VideocallComponent } from './shared modules/shared/videocall/videocall.component';
+import { CouncellorsComponent } from './shared modules/shared/councellors/councellors.component';
+import { UservideocallComponent } from './shared modules/shared/uservideocall/uservideocall.component';
 
 
 const routes: Routes = [
@@ -50,6 +52,7 @@ const routes: Routes = [
   {path:'otpverification',component:OtpComponent },
   {path:'blocked',component:BlockedPageComponent},
   {path:'call/:room',component:VideocallComponent},
+  
  
   
   {path:'dashboard',component:DashboardComponent,
@@ -67,6 +70,7 @@ const routes: Routes = [
     {path:'bookingdetails',component:BookingDetailsComponent},
     {path:'bookingSuccess',component:SucessPageComponent},
   {path:'bookingfailed',component:PaymentFailedComponent},
+  {path:'counsellors',component:CouncellorsComponent}
   
   ]},
   {path:'forgotPassword',component:ForgotPasswordComponent},
@@ -96,6 +100,9 @@ const routes: Routes = [
   { path: 'login/register', redirectTo: 'register', pathMatch: 'full' },
   { path: 'register/login', redirectTo: 'login', pathMatch: 'full' },
   {path:'doctor/dashboard/profile/doctor/profileEdit',redirectTo:'doctor/profileEdit',pathMatch:'full'},
+  {path:'doctor/dashboard/counsellors',redirectTo:'counsellors',pathMatch:'full'},
+  {path:'dashboard/counsellors',redirectTo:'counsellors',pathMatch:'full'},
+  {path:'admin/dashboard/counsellors',redirectTo:'counsellors',pathMatch:'full'},
   {path:'dashboard/profile/medicalHistory',redirectTo:'medicalHistory'},
  {path:'doctor/call/:room',component:VideocallComponent},
   
@@ -111,6 +118,7 @@ const routes: Routes = [
           {path:'doctorlist',component:DoctorslistComponent},
           {path:'userslist',component:UserslistComponent},
           {path:'bookings',component:BookinglistComponent},
+          {path:'counsellors',component:CouncellorsComponent}
          ]
   }
   

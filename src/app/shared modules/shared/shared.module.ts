@@ -7,10 +7,13 @@ import { HeadercomComponent } from './headercom/headercom.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UserSidebarComponent } from './user-sidebar/user-sidebar.component';
 import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
-import { CounsellorsComponent } from './counsellors/counsellors.component';
+
 import { VideocallComponent } from './videocall/videocall.component';
 
 import { MatIconModule } from '@angular/material/icon';
+import { CouncellorsComponent } from './councellors/councellors.component';
+import { UservideocallComponent } from './uservideocall/uservideocall.component';
+import { ChartsComponent } from './charts/charts.component';
 
 
 @NgModule({
@@ -22,8 +25,11 @@ import { MatIconModule } from '@angular/material/icon';
             SidebarComponent,
             UserSidebarComponent,
             AdminSidebarComponent,
-            CounsellorsComponent,
-            VideocallComponent
+         
+            VideocallComponent,
+            CouncellorsComponent,
+            UservideocallComponent,
+            ChartsComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +42,8 @@ import { MatIconModule } from '@angular/material/icon';
     FootercomComponent,
     SidebarComponent,
     UserSidebarComponent,
-    AdminSidebarComponent
+    AdminSidebarComponent,
+    CouncellorsComponent
   ]
 })
 export class SharedModule { }
